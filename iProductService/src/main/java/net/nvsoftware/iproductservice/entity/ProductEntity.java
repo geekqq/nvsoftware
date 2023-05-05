@@ -23,7 +23,7 @@ public class ProductEntity {
     private long productId;
     //@Column(name="" 数据库里的名字)
     private String productName;
-    private long price;
+    private long productPrice;
 
     private long productQuantity;
 }
