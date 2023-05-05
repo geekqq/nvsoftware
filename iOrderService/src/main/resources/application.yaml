@@ -1,19 +1,17 @@
-#server.port=8081
-
 
 server:
-  port: 8081
+  port: 8082
 
 spring:
   datasource:
-    url: jdbc:mysql://${DB_HOST:localhost}:3306/iproductdb
+    url: jdbc:mysql://${DB_HOST:localhost}:3306/iorderdb
     username: root
     password: hu8jin7wei@
   jpa:
     hibernate:
       ddl-auto: update
   application:
-    name: product_service
+    name: order_service
 
 eureka:
   instance:
