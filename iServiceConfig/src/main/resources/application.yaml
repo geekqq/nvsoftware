@@ -8,7 +8,7 @@ spring:
     config:
       server:
         git:
-          uri: http://github.com/nvsoftware/spring-config-server
+          uri: http://github.com/nvsoftware/spring-service-config
 
 
 eureka:
