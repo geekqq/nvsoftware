@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.Instant;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -14,4 +16,18 @@ public class PaymentRequest {
     private PaymentMode paymentMode;
     private String referenceNumber;
     private long totalAmount;
+    private PaymentResponse paymentResponse;
+    @Data
+    @AllArgsConstructor
+    @NoArgsConstructor
+    @Builder
+    public static class PaymentResponse {
+        private long paymentId;
+        private long orderId;
+        private String paymentStatus;
+        private PaymentMode paymentMode;
+        private long totalAmount;
+        private Instant paymentDate;
+    }
+
 }

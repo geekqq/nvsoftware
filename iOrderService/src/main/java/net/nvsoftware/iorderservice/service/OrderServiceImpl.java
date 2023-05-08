@@ -83,12 +83,20 @@ public class OrderServiceImpl implements OrderService {
                 "http://PRODUCT-SERVICE/products/" + orderEntity.getProductId(),
                 OrderResponse.ProductResponse.class
         );
+
+        log.info("OrderService RestCall PaymentService getByOrderId: " + orderEntity.getOrderId());
+        OrderResponse.PaymentResponse paymentResponse = restTemplate.getForObject(
+                "http://PAYMENT-SERVICE/payments/" + orderEntity.getOrderId(),
+                OrderResponse.PaymentResponse.class
+        );
+
         OrderResponse orderResponse = OrderResponse.builder()
                 .orderId(orderEntity.getOrderId())
                 .totalAmount(orderEntity.getTotalAmount())
                 .orderDate(orderEntity.getOrderTime())
                 .orderStatus(orderEntity.getOrderStatus())
                 .productResponse(productResponse)
+                .paymentResponse(paymentResponse)
                 .build();
         log.info("OrderService getOrderDetailByOrderId done!");
         return orderResponse;
